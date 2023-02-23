@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','My Orders')
+@section('title','Mes commandes')
 
 @section('content')
 
@@ -9,36 +9,34 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="shadow bg-white p-3">
-                        <h4 class="mb-4"> My Orders </h4>
+                        <h4 class="mb-4"> Mes Commandes </h4>
                         <hr>
 
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Order ID</th>
-                                        <th>Tracking No</th>
-                                        <th>Username</th>
-                                        <th>Payment Mode</th>
-                                        <th>Ordered Date</th>
-                                        <th>Status Message</th>
+                                        <th>Référence</th>
+                                        <th>Utilisateur</th>
+                                        <th>Mode de paiement</th>
+                                        <th>Date de commande</th>
+                                        <th>Statut</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse ($orders as $item)
                                         <tr>
-                                            <td>{{ $item->id }}</td>
                                             <td>{{ $item->tracking_no }}</td>
                                             <td>{{ $item->fullname }}</td>
                                             <td>{{ $item->payment_mode }}</td>
                                             <td>{{ $item->created_at->format('d-m-Y') }}</td>
                                             <td>{{ $item->status_message }}</td>
-                                            <td><a href="{{ url('orders/'.$item->id) }}" class="btn btn-primary btn-sm">View</a></td>
+                                            <td><a href="{{ url('commande/'.$item->id) }}" class="btn btn-primary btn-sm">Voir</a></td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="7">No Orders available</td>
+                                            <td colspan="7">Vous n'avez pas de commande</td>
                                         </tr>
                                     @endforelse
                                 </tbody>

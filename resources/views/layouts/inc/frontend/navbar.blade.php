@@ -25,12 +25,12 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('panier') }}">
-                                <i class="fa fa-shopping-cart"></i> Panier (<livewire:frontend.cart.cart-count />)
+                                <i class="fa fa-shopping-cart"></i> (<livewire:frontend.cart.cart-count />)
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('wishlist') }}">
-                                <i class="fa fa-heart"></i> Wishlist (<livewire:frontend.wishlist-count />)
+                                <i class="fa fa-heart"></i> (<livewire:frontend.wishlist-count />)
                             </a>
                         </li>
                         @guest
@@ -54,8 +54,8 @@
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                                     <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Mon Profil</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> Mes Commandes</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> Ma Wishlist</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('commandes') }}"><i class="fa fa-list"></i> Mes Commandes</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> Ma Liste</a></li>
                                     <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> Mon Panier</a></li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"

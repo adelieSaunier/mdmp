@@ -24,7 +24,7 @@ class CheckoutShow extends Component
     public function paidOnlineOrder($value)
     {
         $this->payment_id = $value;
-        $this->payment_mode = 'Paid by Paypal';
+        $this->payment_mode = 'Réglée avec Paypal';
 
         $codOrder = $this->placeOrder();
         if($codOrder){
@@ -40,12 +40,12 @@ class CheckoutShow extends Component
             }*/
 
             session()->flash('message','Votre commande est validée, vous recevrez vos produits au plus vite');
-            /*
+
             $this->dispatchBrowserEvent('message', [
                 'text' => 'Commande validée',
                 'type' => 'success',
                 'status' => 200
-            ]);*/
+            ]);
             return redirect()->to('thanks');
         }else{
 
@@ -86,7 +86,7 @@ class CheckoutShow extends Component
             'phone' => $this->phone,
             'pincode' => $this->pincode,
             'address' => $this->address,
-            'status_message' => 'in progress',
+            'status_message' => 'en cours',
             'payment_mode' => $this->payment_mode,
             'payment_id' => $this->payment_id,
         ]);
@@ -112,39 +112,6 @@ class CheckoutShow extends Component
 
         return $order;
     }
-    /*
-    public function codOrder()
-    {
-        $this->payment_mode = 'Cash on Delivery';
-        $codOrder = $this->placeOrder();
-        if($codOrder){
-
-            Cart::where('user_id', auth()->user()->id)->delete();
-
-            try{
-                $order = Order::findOrFail($codOrder->id);
-                Mail::to("$order->email")->send(new PlaceOrderMailable($order));
-                // Mail Sent Successfully
-            }catch(\Exception $e){
-                // Something went wrong
-            }
-
-            session()->flash('message','Order Placed Successfully');
-            $this->dispatchBrowserEvent('message', [
-                'text' => 'Order Placed Successfully',
-                'type' => 'success',
-                'status' => 200
-            ]);
-            return redirect()->to('thank-you');
-        }else{
-
-            $this->dispatchBrowserEvent('message', [
-                'text' => 'Something went wrong',
-                'type' => 'error',
-                'status' => 500
-            ]);
-        }
-    }*/
 
     public function totalProductAmount()
     {

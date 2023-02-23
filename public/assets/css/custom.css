@@ -45,15 +45,14 @@ body {
 }
 
 /* NAVBAR FRONTEND */
-
-.main-navbar{
+.main-navbar {
     border-bottom: 1px solid #ccc;
 }
 
 .main-navbar .top-navbar{
     background-color: #4A9CA8;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .main-navbar .top-navbar .brand-name {
@@ -92,7 +91,7 @@ body {
 
 .main-navbar .navbar .nav-item .nav-link {
     padding: 8px 20px;
-    color: #143E8F;
+    color: #1d376a;
     font-weight: 500;
     font-size: 17px;
 }
@@ -127,6 +126,7 @@ body {
     max-height: 260px;
     overflow: hidden;
     border-bottom: 1px solid #ccc;
+    padding: 30px;
 }
 
 .category-card .category-card-body {
