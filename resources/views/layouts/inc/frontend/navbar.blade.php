@@ -53,10 +53,10 @@
 
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                    <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Mon Profil</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('profil') }}"><i class="fa fa-user"></i> Mon Profil</a></li>
                                     <li><a class="dropdown-item" href="{{ url('commandes') }}"><i class="fa fa-list"></i> Mes Commandes</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> Ma Liste</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> Mon Panier</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('wishlist') }}"><i class="fa fa-heart"></i> Ma Liste</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('panier') }}"><i class="fa fa-shopping-cart"></i> Mon Panier</a></li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();

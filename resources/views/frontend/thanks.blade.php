@@ -15,7 +15,8 @@
                     <div class="p-4 shadow bg-white">
                         <h2>My Digital Market Place</h2>
                         <h4 class="mb-3">Merci pour votre achat !</h4>
-                        <a href="{{ url('categories') }}" class="btn btn-primary">Voir les autres produits</a>
+                        <a href="{{ url('categories') }}" class="btn btn-primary">Voir les autres produits</a><br>
+                        <a href="{{ url('commandes') }}" class="btn btn-primary">Voir mes commandes</a>
                     </div>
                 </div>
             </div>
