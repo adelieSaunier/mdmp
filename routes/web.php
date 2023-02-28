@@ -47,6 +47,10 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     //Page administration générale
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class,'index']);
 
+    //Route settings
+    Route::get('settings', [App\Http\Controllers\Admin\SettingController::class, 'index']);
+    Route::post('settings', [App\Http\Controllers\Admin\SettingController::class, 'store']);
+
     //routes slider
     Route::controller(App\Http\Controllers\Admin\SliderController::class)->group(function(){
         Route::get('/sliders', 'index');
@@ -57,7 +61,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
         Route::put('/slider/{slider}', 'update');
     });
 
-    //routes category
+    //routes categories
     Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function(){
         Route::get('/category','index');
         Route::get('/category/create','create');
@@ -66,7 +70,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
         Route::put('/category/{category}','update');
     });
 
-    //Routes Marque
+    //Routes Marques
     Route::get('/brands',App\Http\Livewire\Admin\Brand\Index::class);
 
     //Routes produits
@@ -90,6 +94,25 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
         Route::get('/color/{color}/edit', 'edit');
         Route::put('/color/{color_id}', 'update');
         Route::get('/color/{color_id}/delete', 'destroy');
+    });
+
+    //Routes commandes
+    Route::controller(App\Http\Controllers\Admin\OrderController::class)->group(function () {
+        Route::get('/orders', 'index');
+        Route::get('/orders/{orderId}', 'show');
+        Route::put('/orders/{orderId}', 'updateOrderStatus');
+        Route::get('/invoice/{orderId}', 'viewInvoice');
+        Route::get('/invoice/{orderId}/generate', 'generateInvoice');
+        Route::get('/invoice/{orderId}/mail', 'mailInvoice');
+    });
+    // routes utilisateurs
+    Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function () {
+        Route::get('/users', 'index');
+        Route::get('/users/create', 'create');
+        Route::post('/users', 'store');
+        Route::get('/users/{user_id}/edit', 'edit');
+        Route::put('users/{user_id}', 'update');
+        Route::get('users/{user_id}/delete', 'destroy');
     });
 
 

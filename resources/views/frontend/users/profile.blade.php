@@ -33,7 +33,7 @@
                         <h4 class="mb-0 text-white">Mes informations</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('profile') }}" method="POST">
+                        <form action="{{ url('profil') }}" method="POST">
                             @csrf
 
                             <div class="row">

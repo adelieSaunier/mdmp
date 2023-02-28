@@ -42,22 +42,22 @@ class CartShow extends Component
     public function incrementQuantity(int $cartId)
     {
         $cartData = Cart::where('id',$cartId)->where('user_id', auth()->user()->id)->first();
-        if($cartData)
-        {
-            if($cartData->productColor()->where('id',$cartData->product_color_id)->exists()){
 
+        if ($cartData)
+        {
+            if ($cartData->productColor()->where('id',$cartData->product_color_id)->exists()) {
                 $productColor = $cartData->productColor()->where('id',$cartData->product_color_id)->first();
-                if($productColor->quantity > $cartData->quantity){
+                if ($productColor->quantity > $cartData->quantity) {
 
                     $cartData->increment('quantity');
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantity Updated',
+                        'text' => 'Quantité mise à jour',
                         'type' => 'success',
                         'status' => 200
                     ]);
                 }else{
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Only ' .$productColor->quantity. ' Quantity Available',
+                        'text' => 'Seulement ' .$productColor->quantity. ' sont disponibles',
                         'type' => 'success',
                         'status' => 200
                     ]);
@@ -68,13 +68,13 @@ class CartShow extends Component
 
                     $cartData->increment('quantity');
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantity Updated',
+                        'text' => 'Quantité mise à jour',
                         'type' => 'success',
                         'status' => 200
                     ]);
                 }else{
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Only ' .$cartData->product->quantity. ' Quantity Available',
+                        'text' => 'Seulement ' .$cartData->product->quantity. ' sont diponibles',
                         'type' => 'success',
                         'status' => 200
                     ]);
@@ -99,7 +99,7 @@ class CartShow extends Component
 
             $this->emit('CartAddedUpdated');
             $this->dispatchBrowserEvent('message', [
-                'text' => 'Cart Item Removed Successfully',
+                'text' => 'Produit supprimé du panier',
                 'type' => 'success',
                 'status' => 200
             ]);
